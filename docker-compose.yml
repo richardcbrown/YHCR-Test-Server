@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  yhcr_service:
+    image: node:10
+    ports: 
+      - "8086:3000"
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+    command: "node server.js"
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: qewd-courier_qewd-net   
